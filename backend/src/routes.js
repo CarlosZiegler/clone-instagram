@@ -9,4 +9,7 @@ const upload = multer(uploadConfig);
 //cria rota raiz do servidor, tendo uma funcao com parametros req e res: uma requisicao e um resposta, usa o Multer para receber o arquivo, e usa o Postcontroller metodo  store
 routes.post('/posts', upload.single('image'), PostController.store);
 
+// rota para buscar os posts com metodo get
+routes.get('/posts', PostController.index);
+
 module.exports = routes;
