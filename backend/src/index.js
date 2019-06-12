@@ -8,12 +8,8 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0-rzeil.mongodb.net/test?retr
     useNewUrlParser:true,
 });
 
-//cria rota raiz do servidor, tendo uma funcao com parametros req e res: uma requisicao e um resposta
-app.get('/',(req,res)=> {
-    // enviadno uma response pegando o name como parametro, passado por localhost:3333?name=Carlos
-    return res.send(`Hello ${req.query.name}`);
-
-});
+//arquivos de rotas
+app.use(require('./routes'));
 
 // qual porta esta o servidor
 app.listen(3333);
