@@ -42,7 +42,7 @@ module.exports = {
         // vai emitir por websockets todos os usuarios que tem post, enviando mensagem post e o objeto post
         req.io.emit('post', post);
         
-        
+        console.log( res.json(post));
         // retorna Json com os posts
         return res.json(post);
 
