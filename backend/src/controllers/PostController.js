@@ -12,8 +12,7 @@ module.exports = {
     },
 
     async store (req, res ) {
-        console.log(req.body);
-        console.log(req.file);
+        
         // busca os valores no corpo do meu body
         const {author, place, description, hashtags } = req.body;
         const {filename: image} = req.file;
@@ -38,10 +37,11 @@ module.exports = {
             place,
             description,
             hashtags,
-            fileName
+            fileName,
         })
         // vai emitir por websockets todos os usuarios que tem post, enviando mensagem post e o objeto post
         req.io.emit('post', post);
+        
         
         // retorna Json com os posts
         return res.json(post);
