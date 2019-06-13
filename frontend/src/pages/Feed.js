@@ -31,11 +31,13 @@ class Feed extends Component {
     render(){
         return(
             <section id="post-list">
-                <article >
+                {/* Percorre o State Feed do retorno da API, como o foreach*/}
+                { this.state.feed.map(post =>(
+                    <article >
                     <header>
                         <div className="user-info">
-                            <span>Carlos Ziegler</span>
-                            <span className="place"> Berlin </span>
+                            <span>{post.author}</span>
+                            <span className="place"> {post.place} </span>
                         </div>
                         <img src={more} alt="Mais"></img>
                     </header>
@@ -47,40 +49,20 @@ class Feed extends Component {
                             <img src={comment} alt="Like"></img>
                             <img src={send} alt="Like"></img>
                         </div>
-                        <strong>900 curtidas</strong>
+                        <strong>{post.like} curtidas</strong>
                         <p>Um post exemplo
-                            <span>#Berlin</span>
+                            <span>#{post.hashtags}</span>
                         </p>
                     </footer>
                 </article>
 
-                <article >
-                    <header>
-                        <div className="user-info">
-                            <span>Carlos Ziegler</span>
-                            <span className="place"> Berlin </span>
-                        </div>
-                        <img src={more} alt="Mais"></img>
-                    </header>
-
-                    <img src="http://localhost:3333/files/docker.jpg" alt="Mais"></img>
-                    <footer>
-                        <div className="actions">
-                            <img src={like} alt="Like"></img>
-                            <img src={comment} alt="Like"></img>
-                            <img src={send} alt="Like"></img>
-                        </div>
-                        <strong>900 curtidas</strong>
-                        <p>Um post exemplo
-                            <span>#Berlin</span>
-                        </p>
-                    </footer>
-                </article>
+                ))}
+                
             </section>
 
             
              
-        )
+        );
 
     }
 }
