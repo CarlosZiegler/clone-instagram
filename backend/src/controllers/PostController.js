@@ -37,7 +37,7 @@ module.exports = {
             place,
             description,
             hashtags,
-            fileName,
+            fileName
         })
         // vai emitir por websockets todos os usuarios que tem post, enviando mensagem post e o objeto post
         req.io.emit('post', post);
