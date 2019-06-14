@@ -32,8 +32,10 @@ class Feed extends Component {
         return(
             <section id="post-list">
                 {/* Percorre o State Feed do retorno da API, como o foreach*/}
+                
                 { this.state.feed.map(post =>(
-                    <article >
+                    
+                    <article key={post._id} >
                     <header>
                         <div className="user-info">
                             <span>{post.author}</span>
@@ -41,7 +43,7 @@ class Feed extends Component {
                         </div>
                         <img src={more} alt="Mais"></img>
                     </header>
-                    <img src={`http://localhost:3333/files/${post.image}`} alt="Mais"></img>
+                    <img src={`http://localhost:3333/files/${post.image}`} alt="Mais"/>
                     <footer>
                         <div className="actions">
                             <img src={like} alt="Like"></img>

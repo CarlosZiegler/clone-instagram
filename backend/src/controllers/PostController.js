@@ -20,6 +20,7 @@ module.exports = {
         // salva o arquivo com extensao .jpg
         const[name] = image.split('.');
         const fileName = `${name}.jpg`;
+        
 
         //redimensionamento das imagens e local onde salvar a imagem
         await sharp(req.file.path)
@@ -27,7 +28,7 @@ module.exports = {
             .jpeg({quality: 70})
             .toFile(
                 path.resolve(req.file.destination,'resized', fileName)
-            )
+            );
         //deleta a imagem que nao foi redimencionada
         fs.unlinkSync(req.file.path);
 
@@ -37,12 +38,12 @@ module.exports = {
             place,
             description,
             hashtags,
-            fileName
-        })
+            image: fileName,
+        });
         // vai emitir por websockets todos os usuarios que tem post, enviando mensagem post e o objeto post
         req.io.emit('post', post);
         
-        console.log( res.json(post));
+        //console.log( res.json(post));
         // retorna Json com os posts
         return res.json(post);
 
