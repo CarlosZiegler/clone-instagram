@@ -51,7 +51,7 @@ class New extends Component {
         this.props.history.push('/');
     }
 
-    //metodo render do React para preencher o formulario
+    //metodo render do React para preencher o formulario Onchange -> metodo a ser chamado no submit 
     render(){
         return(
             <form id="new-post" onSubmit={this.handleSubmit}>

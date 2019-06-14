@@ -50,7 +50,7 @@ class Feed extends Component {
             });
         })
     }
-
+    // pega o id do post e coloca na api para adicionar um like
     handleLike = id =>{
 
         api.post(`/posts/${id}/like`);
