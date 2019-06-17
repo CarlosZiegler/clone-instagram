@@ -14,7 +14,7 @@ module.exports = {
         await post.save();
 
         // vai emitir por websockets todos os usuarios que tem post, enviando mensagem post e o objeto post
-        req.io.emit('Like', post);
+        req.io.emit('like', post);
        
         // retorna o post atualizado
         return res.json(post);
